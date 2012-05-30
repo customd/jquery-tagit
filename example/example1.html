@@ -52,7 +52,7 @@
 
             $("#add-all-link").click(function(event) {
                 $.each(tags, function(i, e) {
-                    $("#tagit-vertical").tagit("addTag", e);
+                    $("#tagit").tagit("addTag", e);
                 });
                 
                 event.preventDefault();
