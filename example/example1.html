@@ -1,77 +1,58 @@
-
 <!DOCTYPE html>
 <html>
     <head>
         <title>jQuery.tagit example</title>
-        
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-        <script type="text/javascript" src="../lib/jquery.tagit.js"></script>
-        
         <style type="text/css">
-            @import url('http://twitter.github.com/bootstrap/assets/css/bootstrap-1.1.1.min.css');
+            @import url('css/bootstrap.min.css');
             @import url('../css/tagit.css');
             
-            #languages-select {
-                width: 530px;
-            }
-            
-            .body-content {
-                margin-top: 20px;
-                border-radius: 4px;
-                background: whitesmoke;
-                border: solid 1px #CCC;
-            }
-            
-            .body-content > div {
-                margin: 20px;
+            body {
+                margin-top: 60px;
             }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <div class="span16 columns body-content">
-                    <div>
+                <div class="span12">
+                    <form action="#" class="form-vertical well">
                         <p>
                             Select the programming languages you know.
                             (You could also <a href="#" id="add-all-link">add all we know</a>.)
                         </p>
-                        <form action="#">
-                            <fieldset>
-                                <div class="clearfix">
-                                    <label>Experience in</label>
-                                    <div class="input">
-                                        <ul id="languages-select" class="fake-input" tabindex="1">
-                                            <li>Java</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <div class="actions">
-                                <a href="#" class="btn primary">
-                                    Let us know
-                                </a>
-                            </div>
-                        </form>
-                    </div>
+                        <label>Tag text box</label>
+                        <ul id="tagit" class="span4" tabindex="1">
+                            <li>Java</li>
+                        </ul>
+                        <label>Typeahead text box</label>
+                        <input id="typeahead" class="span4" type="text" />
+                        <label>Normal text box</label>
+                        <input class="span4" type="text" />
+                    </form>
                 </div>
             </div>
         </div>
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="../lib/jquery.tagit.js"></script>
         <script type="text/javascript">
-            
             var tags = ["Java", "Javascript", "Python", "C", 
                        "C++", "Ruby", "CSS", "HTML", "C#", 
                        "Visual Basic", "Prolog", "Smalltalk", 
                        "Scala", "Haskel", "Bash"];
             
-            $("#languages-select").tagit({
+            $("#tagit").tagit({
                 tags: tags,
                 field: "language"
             });
-            
+
+            $("#typeahead").typeahead({
+                source: tags
+            });
+
             $("#add-all-link").click(function(event) {
                 $.each(tags, function(i, e) {
-                    $("#languages-select").tagit("addTag", e);
+                    $("#tagit-vertical").tagit("addTag", e);
                 });
                 
                 event.preventDefault();

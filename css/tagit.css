@@ -21,22 +21,27 @@
   height: 14px;
   padding: 6px;
 }
-.fake-input {
+.tagit {
+  cursor: text;
   display: inline-block;
-  width: 210px;
-  margin: 0;
-  padding: 4px;
+  height: auto;
+  min-height: 28px;
+  margin: 0 0 9px;
+  padding: 0 2px 2px;
+  float: none;
   font-size: 13px;
-  line-height: 18px;
-  height: 18px;
+  line-height: 22px;
   color: gray;
   border: 1px solid #ccc;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   background-color: white;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-.fake-input {
+.tagit {
   -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
   -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
   transition: border linear 0.2s, box-shadow linear 0.2s;
@@ -44,12 +49,23 @@
   -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-.fake-input.focused {
+.tagit.focused {
   outline: none;
   border-color: rgba(82, 168, 236, 0.8);
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
   -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+.btn-tag {
+  cursor: default;
+  font-size: 13px;
+  line-height: 16px;
+  margin: 0 2px;
+  padding: 1px 5px;
+}
+.btn-tag .close {
+  font-size: 16px;
+  margin-left: 5px;
 }
 form div.error, input.no-style {
   -webkit-transition: none;
@@ -64,6 +80,7 @@ input.no-style,
 form div.error input.no-style:focus,
 input.no-style:focus {
   border: none;
+  margin: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -112,22 +129,17 @@ form div.error .fake-input.focused {
 }
 .tagit .tagit-edit-handle {
   position: relative;
+  width: 0;
 }
 .tagit .tagit-edit-handle input {
-  padding: 3px 4px 2px 0;
   background: transparent;
+  outline: none;
+  padding: 2px;
 }
 .tagit .tagit-edit-handle ul {
   position: absolute;
-  left: 0;
-  top: 20px;
-  right: 0;
-  background: white;
-  margin: 0;
-  padding: 0;
   display: none;
-  border: solid 1px #7f9db9;
-  line-height: 20px;
+  margin-top: 5px;
 }
 .tagit .tagit-edit-handle ul.open {
   display: block;
